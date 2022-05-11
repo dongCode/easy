@@ -1,0 +1,9 @@
+config
+dist
+build
+src/**/*.less
+src/**/*.css
+node_modules
+**/*.d.ts
+.eslintcache
+src/utils/icons.ts

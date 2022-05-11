@@ -1,0 +1,4 @@
+{
+  "./src/**/*.{ts,tsx}": "eslint --fix --cache",
+  "./src/**/*.{ts,tsx,less,css}": "pretty-quick --staged"
+}
