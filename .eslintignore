@@ -7,3 +7,4 @@ node_modules
 **/*.d.ts
 .eslintcache
 src/utils/icons.ts
+craco.config.js

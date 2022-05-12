@@ -17,11 +17,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "start": "craco start",
+    "build": "craco build",
+    "eject": "craco eject",
+    "prepare": "husky install",
+    "prettier": "prettier -c --write **/*",
+    "pretty-quick": "pretty-quick",
+    "analyze": "cross-env ANALYZE=1 npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -44,10 +46,24 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
+    "@craco/craco": "^6.4.3",
+    "antd-dayjs-webpack-plugin": "^1.0.6",
+    "craco-alias": "^3.0.1",
+    "craco-less": "^2.0.0",
+    "craco-swc": "^0.5.1",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.0",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
-    "pretty-quick": "^3.1.3"
+    "pretty-quick": "^3.1.3",
+    "stylelint": "^14.8.2",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+    "cross-env": "^7.0.3",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }
