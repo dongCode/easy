@@ -1,9 +1,12 @@
 const lessPlugin = require('craco-less');
 const AnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const aliasPlugin = require('craco-alias');
+const swcPlugin = require('craco-swc');
 
 const createWebpackPlugins = () => {
+
   const defaultPlugins = [];
+
   const addAnalyze = () => {
     const isAnalyze = process.env.ANALYZE;
     if (isAnalyze) {
@@ -30,6 +33,31 @@ const createPlugins = () => {
         tsConfigPath: './tsconfig.paths.json',
       },
     },
+    // 加快打包速度
+    {
+      plugin: {
+        ...swcPlugin,
+        // 覆盖与eslint冲突的规则
+        overrideCracoConfig: ({ cracoConfig }) => {
+          if (typeof cracoConfig.eslint.enable !== 'undefined') {
+            cracoConfig.disableEslint = !cracoConfig.eslint.enable;
+          }
+          delete cracoConfig.eslint;
+          return cracoConfig;
+        },
+        overrideWebpackConfig: ({ webpackConfig, cracoConfig }) => {
+          if (
+            typeof cracoConfig.disableEslint !== 'undefined' &&
+            cracoConfig.disableEslint === true
+          ) {
+            webpackConfig.plugins = webpackConfig.plugins.filter(
+              instance => instance.constructor.name !== 'ESLintWebpackPlugin',
+            );
+          }
+          return webpackConfig;
+        },
+      }
+    }
   ];
 
   return defaultPlugins;
@@ -37,6 +65,9 @@ const createPlugins = () => {
 module.exports = () => {
   return {
     webpack: {
+      configure: {
+        cache: true,
+      },
       plugins: createWebpackPlugins(),
     },
     plugins: createPlugins(),

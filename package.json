@@ -49,6 +49,7 @@
     "@commitlint/config-conventional": "^16.2.4",
     "craco-alias": "^3.0.1",
     "craco-less": "^2.0.0",
+    "craco-swc": "^0.5.1",
     "cross-env": "^7.0.3",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.0",
