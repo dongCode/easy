@@ -3,16 +3,18 @@ const AnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const aliasPlugin = require('craco-alias');
 
 const createWebpackPlugins = () => {
-  const isAnalyze = process.env.ANALYZE;
   const defaultPlugins = [];
-
-  if (isAnalyze) {
-    defaultPlugins.push(
-      new AnalyzerPlugin({
-        analyzerMode: 'server',
-      }),
-    );
+  const addAnalyze = () => {
+    const isAnalyze = process.env.ANALYZE;
+    if (isAnalyze) {
+      defaultPlugins.push(
+        new AnalyzerPlugin({
+          analyzerMode: 'server',
+        }),
+      );
+    }
   }
+  addAnalyze()
   return defaultPlugins;
 };
 const createPlugins = () => {
