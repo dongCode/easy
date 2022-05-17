@@ -12,7 +12,7 @@ const AppLayout = () => {
       <header className="header">
         <div>
           <span className="logo">logo</span>
-          <span className="logo"> text</span>
+          <span className="logo">text</span>
         </div>
         <div>
           <span className="logo">其他</span>
@@ -28,7 +28,7 @@ const AppLayout = () => {
               </Link>
             </Item>
             <Item key="2">
-              <Link to="/courses">
+              <Link to="/protected">
                 <span>权限页</span>
               </Link>
             </Item>

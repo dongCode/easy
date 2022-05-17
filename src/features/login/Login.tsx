@@ -31,9 +31,7 @@ export const Login = () => {
       </div>
       <div className="login-box">
         <Row>
-          <Col span={12}>
-            <img src={banner} alt="login bg" />
-          </Col>
+          <Col span={12}></Col>
           <Col span={12}>
             <div className="user-info-box user-info-box-usually">
               <h2 className="user-info-title">账户登录</h2>

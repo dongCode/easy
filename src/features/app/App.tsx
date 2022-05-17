@@ -9,7 +9,10 @@ const routesConfig: RouteObject[] = [
     path: '/',
     element: <AppLayout />,
     children: [
-      { index: true, element: <PublicPage /> },
+      {
+        path: 'index',
+        element: <PublicPage />,
+      },
       {
         path: '/protected',
         element: (
