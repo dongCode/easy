@@ -4,7 +4,6 @@ const aliasPlugin = require('craco-alias');
 const swcPlugin = require('craco-swc');
 
 const createWebpackPlugins = () => {
-
   const defaultPlugins = [];
 
   const addAnalyze = () => {
@@ -16,14 +15,21 @@ const createWebpackPlugins = () => {
         }),
       );
     }
-  }
-  addAnalyze()
+  };
+  addAnalyze();
   return defaultPlugins;
 };
 const createPlugins = () => {
   const defaultPlugins = [
     {
       plugin: lessPlugin,
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            javascriptEnabled: true,
+          },
+        },
+      },
     },
     {
       plugin: aliasPlugin,
@@ -56,8 +62,8 @@ const createPlugins = () => {
           }
           return webpackConfig;
         },
-      }
-    }
+      },
+    },
   ];
 
   return defaultPlugins;

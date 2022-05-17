@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { useNavigate, useLocation, Navigate } from 'react-router-dom';
+import { useLocation, Navigate } from 'react-router-dom';
 
 export const fakeAuthProvider = {
   isAuthenticated: false,
@@ -45,28 +45,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
 export function useAuth() {
   return useContext(AuthContext);
-}
-
-export function AuthStatus() {
-  let auth = useAuth();
-  let navigate = useNavigate();
-
-  if (!auth.user) {
-    return <p>You are not logged in.</p>;
-  }
-
-  return (
-    <p>
-      Welcome {auth.user}!{' '}
-      <button
-        onClick={() => {
-          auth.logout(() => navigate('/'));
-        }}
-      >
-        Sign out
-      </button>
-    </p>
-  );
 }
 
 export function RequireAuth({ children }: { children: JSX.Element }) {
