@@ -11,12 +11,12 @@ const AppLayout = () => {
     <Layout className="g-h100 app-layout">
       <header className="header">
         <div>
-          <span className="logo">logo</span>
-          <span className="logo">text</span>
+          <span className="logo"></span>
+          <span className="logo"></span>
         </div>
         <div>
-          <span className="logo">其他</span>
-          <span className="logo"> dd</span>
+          <span className="logo"></span>
+          <span className="logo"></span>
         </div>
       </header>
       <Layout className="g-row calc-50">
