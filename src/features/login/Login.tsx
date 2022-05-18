@@ -16,9 +16,7 @@ export const Login = () => {
   const { state } = location as any;
   let from = state?.from?.pathname || '/';
   const handleLogin = (user: any) => {
-    const { username } = user;
-
-    auth.login(username, () => {
+    auth.login(user, () => {
       navigate(from, { replace: true });
     });
   };

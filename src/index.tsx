@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import '@/styles/index.less';
 import App from '@feat/app';
 import { BrowserRouter } from 'react-router-dom';
+import initMock from '@/mocks';
+
+initMock();
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(

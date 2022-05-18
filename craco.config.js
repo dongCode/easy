@@ -77,5 +77,8 @@ module.exports = () => {
       plugins: createWebpackPlugins(),
     },
     plugins: createPlugins(),
+    babel: {
+      plugins: [['import', { libraryName: 'apusic-ui', libraryDirectory: 'lib', style: true }]],
+    },
   };
 };

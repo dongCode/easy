@@ -6,6 +6,10 @@ import AppLayout from './AppLayout';
 
 const routesConfig: RouteObject[] = [
   {
+    path: '/login',
+    element: <Login />,
+  },
+  {
     path: '/',
     element: <AppLayout />,
     children: [
@@ -22,10 +26,6 @@ const routesConfig: RouteObject[] = [
         ),
       },
     ],
-  },
-  {
-    path: '/login',
-    element: <Login />,
   },
 ];
 
