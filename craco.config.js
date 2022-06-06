@@ -2,10 +2,9 @@ const lessPlugin = require('craco-less');
 const AnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const aliasPlugin = require('craco-alias');
 const swcPlugin = require('craco-swc');
-
+const DayjsPlugin = require('antd-dayjs-webpack-plugin');
 const createWebpackPlugins = () => {
-
-  const defaultPlugins = [];
+  const defaultPlugins = [new DayjsPlugin()];
 
   const addAnalyze = () => {
     const isAnalyze = process.env.ANALYZE;
@@ -16,8 +15,8 @@ const createWebpackPlugins = () => {
         }),
       );
     }
-  }
-  addAnalyze()
+  };
+  addAnalyze();
   return defaultPlugins;
 };
 const createPlugins = () => {
@@ -56,8 +55,8 @@ const createPlugins = () => {
           }
           return webpackConfig;
         },
-      }
-    }
+      },
+    },
   ];
 
   return defaultPlugins;
@@ -74,9 +73,9 @@ module.exports = () => {
     babel: {
       // 支持装饰器模式语法
       plugins: [
-        ["@babel/plugin-proposal-decorators", { "legacy": true }],
-        ["@babel/plugin-proposal-class-properties", { "loose": true }]
-      ]
-    }
+        ['@babel/plugin-proposal-decorators', { legacy: true }],
+        ['@babel/plugin-proposal-class-properties', { loose: true }],
+      ],
+    },
   };
 };
