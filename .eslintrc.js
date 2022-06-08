@@ -2,7 +2,9 @@ module.exports = {
   extends: ['react-app', 'react-app/jest', 'prettier'],
   rules: {
     'no-unused-vars': 'off',
-    'max-len': [1, 100],
+    'max-len': [1, 200],
+    'prefer-const': ['error'],
+    'eqeqeq': ['error'],
   },
   overrides: [
     {
