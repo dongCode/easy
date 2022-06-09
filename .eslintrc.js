@@ -3,16 +3,14 @@ module.exports = {
   rules: {
     'no-unused-vars': 'off',
     'max-len': [1, 200],
-    'prefer-const': ['error'],
-    'eqeqeq': ['error'],
+    'prefer-const': 'error',
+    eqeqeq: 'error',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    "@typescript-eslint/no-unused-vars": ["error"],
   },
+  plugins: ['simple-import-sort'],
   overrides: [
-    {
-      files: ['**/*.ts?(x)'],
-      rules: {
-        'no-unused-vars': ['error'],
-      },
-    },
     {
       files: ['**/*.stories.*'],
       rules: {
